@@ -24,10 +24,29 @@ for(let i=1;i<=rows;i++){
     currRow.className="curr-row";
     for(let j=1;j<=26;j++){
         // here we will add all the cell
-        let cell=document.createElement("cite");
+        let cell=document.createElement("div");
         cell.contentEditable=true;
         cell.className="cell";
+        /// Here we need to add a ID of the cell 
+        // That needs to be unique 
+        cell.id=`${String.fromCharCode(j+64)}`+`${i}`
         currRow.appendChild(cell);
+        cell.addEventListener("focus",onFocusEvent);
+        
     }
     body.append(currRow);
 }
+//We need to add a event listner to the body element 
+// Get the exact target of where it is been clicked
+/// STEP we need a global variable 
+let selectedCell=null;
+const state={};
+// body.addEventListener("click",function(e){
+//     // Here we need to see wheather we can call exact element or not
+//     console.log(e.target);
+//     selectedCell=e.target;
+//     /// Here we need id of every element selected
+//     let selectedArea=document.getElementById("selectedArea");
+//     selectedArea.innerHTML=selectedCell.id;
+// })
+//  This is creating a problem that it click all the body some time 

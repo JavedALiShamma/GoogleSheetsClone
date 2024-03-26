@@ -2,18 +2,31 @@
 body {
     margin: 0;
 }
+.head-container{
+    width: 100vw;
+    height: 20vh;
+}
+.wizard-bar{
+    margin-left:20px;
+    margin-right: 20px;
+    width: 96vw;
+    height: 40px;
+    background-color:#EDF2FA;
+    border-radius: 5px;
+}
 .container {
     width: 100wv;
-    height: 100vh;
+    height: 80vh;
     display: grid;
     grid-template-columns: 30px auto;
+    /* Here this is independent */
     grid-template-rows: 30px auto;
+    /* it is also independent */
     overflow-x: scroll;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 .headrow{
     /* width: 100vw; */
-    background-color: aqua;
     position: sticky;
     top: 0px;
     display: flex;
@@ -27,7 +40,7 @@ body {
     left: 0px;
 }
 .plate{
-    /* background-color: black; */
+    background-color: white;
     border-bottom: 4px solid #C7C7C7;
     border-right: 4px solid #C7C7C7;
     position: sticky;
@@ -35,8 +48,9 @@ body {
     top: 0px;
     z-index: 20;
 }
+
 .headrow .head-cell{
-    width: 150px;
+    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,9 +61,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height:40px;
+    height:20px; 
+    /* Here we can change the height of sno-row */
     border: 00.5px solid #C0C0C0;
     background-color: white;
+}
+.cell:focus{
+    border-color: #0B57D0 !important;
 }
 .curr-row{
   /* border: 2px solid red; */
@@ -57,9 +75,104 @@ body {
 }
 .cell{
     background-color: white;
-    border: 00.5px solid #C0C0C0;
-    width: 150px;
-    height: 40px;
-    min-height: 40px;
+    /* border-width: 0.5px; */
+    border: 0.5px solid #C0C0C0;
+    width: 100px;
+    /*  It is dependent with the cell */
+    height: 20px;
+    min-height: 20px;
     overflow: hidden;
+    /* display: flex; */
+    /* justify-content: start; */
+    /* align-items:flex-start; */
+}
+.cell:focus{
+    outline:1px solid blue !important;
+}
+#bold{
+    border: 1px solid green !important;
+    pointer-events: none;   
+}
+label{
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+}
+
+.font-weight{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.wizard-bar{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+.align-container{
+    display: flex;
+    gap: 10px;
+}
+input[type="checkbox"],input[type="radio"]{
+    display: none;
+}
+input[type="checkbox"]:checked +label,input[type="radio"]:checked +label{
+    background-color:#D8DCE3;
+    border-radius: 2px;
+}
+input[type="color"]{
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
+form{
+    display: flex;
+}
+.box{
+    margin-left: 30px;
+    margin-top: 20px;
+    width: 90vw;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: .1px solid grey;
+    overflow: hidden;
+
+}
+.selected-cell{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 100%;
+    background-color:#EDEDED ;
+}
+.box >input{
+    display: flex;
+    flex: 1;
+    height: 100%;
+    border: none;
+}
+.active-cell{
+   border-color:transparent;
+   outline: 2px solid #0B57D0;
+   position: relative;
+   z-index: 4;
+   border-radius: 1px;
+   /* border: 2px solid #0B57D0; */
+}
+.font-sizeBlock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#add{
+    cursor: pointer;
+}
+#remove{
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
 }
